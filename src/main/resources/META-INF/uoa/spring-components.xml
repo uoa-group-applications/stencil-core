@@ -1,0 +1,22 @@
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+  ">
+
+    <context:annotation-config />
+    <!-- this is covered with the existing scan for nz.ac.auckland for @UniversityComponent, we don't want more? -->
+    <!--<context:component-scan base-package="nz.ac.auckland.stencil" />-->
+
+    <!-- add @Event to the things that need to be automatically scanned for injection stuff -->
+    <context:component-scan base-package="nz.ac.auckland" use-default-filters="false">
+        <context:include-filter type="annotation" expression="nz.ac.auckland.stencil.Path"/>
+        <context:include-filter type="annotation" expression="nz.ac.auckland.stencil.DefaultStencil"/>
+    </context:component-scan>
+
+</beans>
