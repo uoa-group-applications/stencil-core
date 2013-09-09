@@ -35,7 +35,7 @@ public class StencilMatcherTest {
     public void testKeepAnnotatedPageInstances() {
         StencilMatcher pageMatcher = applicationContext.getBean(StencilMatcher.class);
 
-        assert pageMatcher.pages.size() == 3
+        assert pageMatcher.pages.size() == 4
         assert pageMatcher.defaultPageUrl == '/test/test'
 
         List<Class<?>> pageTypes = pageMatcher.pages.collect { it.class }
