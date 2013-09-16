@@ -28,6 +28,13 @@ class LinkBuilderTest {
         assert builder.linkTo("/my-link") == "/context/my-link"
         assert builder.linkTo("") == "/context/";
         assert builder.linkTo("/") == "/context/";
+
+	    builder = createLinkBuilder2()
+
+	    assert builder.linkTo("my-link") == "/my-link";
+	    assert builder.linkTo("/my-link") == "/my-link"
+	    assert builder.linkTo("") == "/";
+	    assert builder.linkTo("/") == "/";
     }
 
     /**
@@ -52,6 +59,11 @@ class LinkBuilderTest {
 
         match = builder.linkTo(TestStencil, [one: "first", two: "second", three: "third"]);
         assert match == "/context/first/second/content/third";
+
+	    builder = createLinkBuilder2()
+	    match = builder.linkTo(TestStencil, [one: "first", two: "second", three: "third"])
+	    assert match == "/first/second/content/third"
+
     }
 
     /**
@@ -100,5 +112,11 @@ class LinkBuilderTest {
 
         return builder
     }
+
+	protected LinkBuilder createLinkBuilder2() {
+		LinkBuilder builder = new LinkBuilder();
+		builder.contextPath = '/'
+		return builder
+	}
 
 }

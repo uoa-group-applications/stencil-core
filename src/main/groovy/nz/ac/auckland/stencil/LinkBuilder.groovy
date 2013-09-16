@@ -58,7 +58,7 @@ class LinkBuilder {
 
 		StringBuilder strBuilder = new StringBuilder()
 		strBuilder.append(getContextPath()).append(url);
-		return strBuilder.toString()
+		return strBuilder.toString().replaceAll('//','/')
 	}
 
 	/**
@@ -105,7 +105,7 @@ class LinkBuilder {
 				.append(getContextPath())
 				.append(matcher)
 
-		return strBuilder.toString();
+		return strBuilder.toString().replaceAll('//','/');
 
 	}
 
