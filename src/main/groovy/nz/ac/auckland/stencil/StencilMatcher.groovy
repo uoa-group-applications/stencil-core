@@ -122,7 +122,7 @@ class StencilMatcher {
         Comparator<String> pageCmp = matcher.getPatternComparator(url);
 
         // order pages
-        List<Stencil> orderedPages = this.pages.sort { Stencil page, Stencil other ->
+        List<Stencil> orderedPages = this.pages.sort(false) { Stencil page, Stencil other ->
 
             // get page patterns
             String pagePattern = this.getPagePattern(page),
