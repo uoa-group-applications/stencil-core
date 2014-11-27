@@ -55,7 +55,7 @@ public class StencilMatcherTest {
         List<Stencil> ordered = pageMatcher.orderPagesBySpecificity("/test/test")
         assert ordered[0] instanceof P2
         assert ordered[1] instanceof P1
-        assert ordered[2] instanceof P3
+        assert ordered[3] instanceof P3
     }
 
 
